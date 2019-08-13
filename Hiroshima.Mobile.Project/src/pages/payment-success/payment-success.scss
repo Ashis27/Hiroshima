@@ -1,0 +1,42 @@
+page-payment-success {
+
+
+
+   
+        h1{
+            text-align: center;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+    
+        p{
+            text-align: center;
+            font-size: 14px;
+        }
+        .payment-done-thumb{
+    
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+    
+        .btn{
+            border-radius: 18px;
+            /* COLOR: #00cc5b; */
+            background-color: #00cc5b;
+            height: 7%;
+            font-size: 26px;
+            margin-top: 9%;
+        }
+       .success-image{
+        width: 70%;
+        //transform:none !important;
+       }
+   
+    
+
+}
+
+
+

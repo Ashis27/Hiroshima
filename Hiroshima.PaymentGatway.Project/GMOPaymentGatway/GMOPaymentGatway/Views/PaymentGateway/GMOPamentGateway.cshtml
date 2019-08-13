@@ -1,0 +1,10 @@
+﻿@model GMOPaymentGatway.Models.PaymentGatwayModels.GMOPaymentRequest
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var response = @Html.Raw(Json.Encode(Model));
+        $("body").append(response.PGForm);
+    });
+</script>

@@ -1,0 +1,23 @@
+﻿{
+  "culture": {
+    "lang": "hi"
+  },
+  "languages": {
+    "AppName": "हिरोशिमा",
+    "AppSortName": "एच एस",
+    "DashBoard": "डैशबोर्ड",
+    "User": "उपयोगकर्ता",
+    "Pass": "उत्तीर्ण करना",
+    "PTO": "पीटीओ",
+    "Language": "भाषा",
+    "Currency": "मुद्रा",
+    "Booking": "बुकिंग",
+    "Booking Info": "बुकिंग जानकारी",
+    "Transation": "लेन-देन",
+    "Transation Info": "लेन-देन की जानकारी",
+    "CreateNewAdminUser": "नया व्यवस्थापक बनाएं",
+    "SuperAdmin": "सुपर एडमिन",
+    "NECAdmin": "परिषद सदस्य",
+    "NECContent": "यह पृष्ठ केवल NEC व्यवस्थापन द्वारा पहुँचा जा सकता है"
+  }
+}

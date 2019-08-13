@@ -1,0 +1,7 @@
+{
+  "name": "HiroshimaQRTicketing",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

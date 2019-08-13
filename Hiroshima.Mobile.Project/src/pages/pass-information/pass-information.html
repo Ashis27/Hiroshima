@@ -1,0 +1,125 @@
+<!--
+  Generated template for the PassInformationPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content>
+  <ion-row>
+    <ion-col col-12 *ngIf="activePasses">
+      <ion-row>
+        <ion-col col-12>
+          <img src="assets/imgs/passdetails/pass-background.jpeg" class="header-img">
+          <ion-icon name="arrow-round-back" class="card-back-arrow" (click)="backToPrevious()"></ion-icon>
+
+        </ion-col>
+      </ion-row>
+      <div class="body">
+        <ion-row class="ticket-price-info">
+          <ion-col col-1>
+            <img src="assets/imgs/dollar.svg" *ngIf="activePasses.defaultCurrency== 1" class="currency v-a-s">
+            <img src="assets/imgs/yen.svg" *ngIf="activePasses.defaultCurrency== 2" class="currency v-a-s">
+          </ion-col>
+          <ion-col col-11 class="mar-top-btm-auto">
+            <span>{{lang("Adult")}}: {{activePasses.adultPrice}}</span>
+            <span class="padd-left-10">{{lang("Child")}}: {{activePasses.childPrice}}</span>
+          </ion-col>
+        </ion-row>
+        <p class="app-subheader " *ngIf="activePasses.passDescription && activePasses.passDescription.length > 0">
+          {{activePasses.passDescription[0].passName}}
+        </p>
+        <p class="app-header-content" *ngIf="activePasses.passDescription && activePasses.passDescription.length > 0">
+          {{activePasses.passDescription[0].passDesc}}
+        </p>
+        <ion-row class="travel-info-row">
+          <ion-col col-2>
+            <img src="assets/imgs/passdetails/distance.png">
+          </ion-col>
+          <ion-col col-10 class="mar-top-btm-auto">
+            <p class="app-header mar-top-btm-auto padd-0">{{lang("TravelInformation")}}</p>
+          </ion-col>
+        </ion-row>
+        <ion-row class="mar-10-dedduct">
+          <ion-col col-4>
+            <ion-card class="pass-info-card-style">
+              <ion-card-header>
+                <p>{{lang("Duration")}}</p>
+              </ion-card-header>
+              <ion-card-content>
+                <img src="assets/imgs/passdetails/history.png" class="p-t-b-5">
+                <p>
+                  <span *ngIf="activePasses.passValidityInDays > 0">{{activePasses.passValidityInDays}} day(s)</span>
+                  <span *ngIf="activePasses.passValidityInHours > 0" class="w-s-n-w">{{activePasses.passValidityInHours}} hr(s)</span>
+                </p>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col col-4>
+            <ion-card class="pass-info-card-style">
+              <ion-card-header>
+                <p>{{lang("ValidArea")}} </p>
+              </ion-card-header>
+              <ion-card-content>
+                <img src="assets/imgs/passdetails/ticket.png" class="p-t-b-5">
+                <p>
+                  <span class="location-text" *ngIf="activePasses.passDescription && activePasses.passDescription.length > 0">{{activePasses.passDescription[0].passAreaDescription}}</span>
+                </p>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col col-4>
+            <ion-card class="pass-info-card-style">
+              <ion-card-header>
+                <p>{{lang("Expiry")}}</p>
+              </ion-card-header>
+              <ion-card-content>
+                <img src="assets/imgs/passdetails/deadline.png" class="p-t-b-5">
+                <p>{{activePasses.passExpiredDate}}</p>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+        <ion-row class="travel-info-row m-l--5">
+          <ion-col col-2>
+            <img src="assets/imgs/passdetails/driver.png">
+          </ion-col>
+          <ion-col col-10 class="mar-top-btm-auto">
+            <p class="app-header mar-top-btm-auto padd-0">{{lang("AvailablePTOs")}}</p>
+          </ion-col>
+        </ion-row>
+        <ion-row class="pto-info-row">
+          <ion-col col-12 *ngIf="activePasses.passActivePTOs && activePasses.passActivePTOs.length > 0">
+            <ion-slides slidesPerView="2.7" spaceBetween="20">
+              <ion-slide *ngFor="let pto of activePasses.passActivePTOs">
+                <p class="pto-names" *ngIf="pto.ptoInformation && pto.ptoInformation.ptoDescription.length > 0" (click)="seeAllPTOs()">{{pto.ptoInformation.ptoDescription[0].ptoName}}</p>
+              </ion-slide>
+            </ion-slides>
+            <ion-row>
+              <ion-col col-12>
+                <p class="see-all-style" text-right (click)="seeAllPTOs()">See All</p>
+              </ion-col>
+            </ion-row>
+            <!-- <ion-row *ngFor="let pto of activePasses.passActivePTOs">
+                <ion-col col-12 *ngIf="pto.ptoInformation && pto.ptoInformation.ptoDescription.length > 0">
+                  <p class="app-header-content">
+                    <img src="assets/imgs/dashboard/dot.svg" class="point-icon"> {{pto.ptoInformation.ptoDescription[0].ptoName}}
+                  </p>
+                </ion-col>
+              </ion-row> -->
+          </ion-col>
+        </ion-row>
+      </div>
+    </ion-col>
+    <ion-col col-12 *ngIf="!activePasses" class="not-available-sec">
+      <p class="">
+        <img alt="card_not_found_icon" class="not-found-icon cursor-pointer" src="assets/imgs/not-found.svg">
+      </p>
+      <P class="not-available-text">
+        {{lang("NoPassInfoAvailable")}}
+      </P>
+    </ion-col>
+  </ion-row>
+</ion-content>
+<ion-footer no-border *ngIf="activePasses">
+  <button ion-button block (click)="bookPass()">{{lang("Purchase")}}</button>
+</ion-footer>

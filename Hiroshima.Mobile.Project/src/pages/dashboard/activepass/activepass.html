@@ -1,0 +1,67 @@
+<!--
+  Generated template for the ActivepassPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-grid class="active-passes" *ngIf="paginatedPass.items.length > 0 && isAvaileble">
+  <ion-row>
+    <ion-col text-left>
+      <p class="app-header mar-top-12 active-pass-header">
+        {{lang("ActivePassHeader")}}
+      </p>
+      <p class="app-header mar-btn-12 active-pass-header">
+        {{lang("ActivePassSubHeader")}}?
+      </p>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngFor="let item of paginatedPass.items; let index=index" class="passes">
+    <ion-col col-10 class="pass-col">
+      <ion-card (click)="selectedPass(item)">
+        <img src="assets/imgs/passdetails/pass-background.jpeg" class="" />
+        <div class="location">
+          <ion-icon name="md-pin"></ion-icon>
+          <span class="location-text" *ngIf="item.passDescription && item.passDescription.length > 0">{{item.passDescription[0].passAreaDescription}}</span>
+        </div>
+        <p class="pass-name para-overflow-hidden" *ngIf="item.passDescription && item.passDescription.length > 0">{{item.passDescription[0].passName}}</p>
+        <div class="price">
+          <span class="d-w-i-b">
+            {{lang("Kids")}}:
+            <img src="assets/imgs/card/dollar.svg" *ngIf="item.defaultCurrency== 1" class="card-currency m-l-r-3 v-a-s">
+            <img src="assets/imgs/card/yen.svg" *ngIf="item.defaultCurrency== 2" class="card-currency m-l-r-3 v-a-s"> {{item.childPrice}}</span>
+          <span class="padding-left d-w-i-b m-l-10">
+            {{lang("Adults")}}:
+            <img src="assets/imgs/card/dollar.svg" *ngIf="item.defaultCurrency== 1" class="card-currency m-l-r-3 v-a-s">
+            <img src="assets/imgs/card/yen.svg" *ngIf="item.defaultCurrency== 2" class="card-currency m-l-r-3 v-a-s"> {{item.adultPrice}}</span>
+        </div>
+        <div class="pass-expired">
+          <span class="padding-left">{{lang("Expiry")}}: {{item.passExpiredDate}}</span>
+        </div>
+      </ion-card>
+    </ion-col>
+    <ion-col col-2 class="buy-btn-col">
+      <button ion-button class="buy-btn" (click)="bookPass(item)">
+        <ion-row>
+          <ion-col col-12>
+            <p>{{lang("Buy")}}</p>
+          </ion-col>
+          <ion-col col-12>
+            <img src="assets/imgs/dashboard/buy_active.png">
+          </ion-col>
+        </ion-row>
+      </button>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+<!-- ******************************************************** -->
+
+<ion-grid class="text-center" *ngIf="!isAvaileble">
+  <p class="m-b-0 not-found-section" text-center>
+    <img alt="card_header_icon" class="not-found-icon cursor-pointer" src="assets/imgs/not-found.svg">
+  </p>
+  <p class="not-available-text" style="font-size:1.5rem">{{lang('NoResultFound')}}!</p>
+</ion-grid>
+<ion-infinite-scroll #infiniteScroll (ionInfinite)="doInfinite($event)">
+  <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more pass..."></ion-infinite-scroll-content>
+</ion-infinite-scroll>

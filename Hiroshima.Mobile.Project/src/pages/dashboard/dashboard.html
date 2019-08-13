@@ -1,0 +1,29 @@
+<ion-content class="body">
+  <ion-grid class="tab_style">
+    <ion-row>
+      <ion-col col-12 class="lang_col">
+        <span class="app-header-title">{{lang("MobileAppName")}}</span>
+        <img class="lang_flag" (click)="gotoFeedback()" src="assets/imgs/dashboard/help.svg">
+        <img class="lang_flag" (click)="onChangeLang()" src="assets/imgs/language/round/{{_lang_service.currentLanguage.icon}}">
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12 class="padd-0">
+        <ion-row>
+          <ion-col *ngFor="let tab of tabList" col-3>
+            <div class="selected_tab" (click)="selectedTabInfo(tab)">
+              <div class="rounded" [class.selectedTab]="selectedTab == tab.pageStatus">
+                <img [src]="tab.defaultImg" class="tab-image">
+              </div>
+            </div>
+            <p class="tab_name">{{lang(tab.title)}}</p>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <page-activepass *ngIf="selectedTab == 'BuyPass'"></page-activepass>
+  <page-availablepass *ngIf="selectedTab == 'AvailablePass'"></page-availablepass>
+  <page-inusepass *ngIf="selectedTab == 'InUsePass'"></page-inusepass>
+  <page-historypass *ngIf="selectedTab == 'HistoryPass'"></page-historypass>
+</ion-content>

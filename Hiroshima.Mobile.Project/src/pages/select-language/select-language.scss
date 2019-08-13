@@ -1,0 +1,43 @@
+page-select-language {
+    .select-lang-back{
+        background: url(../assets/imgs/language/lang-back.png) no-repeat center;
+        background-size: 100%;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        -ms-background-size: cover;
+    }
+
+    .lang-back{
+        background: rgb(230, 230, 230);
+    }
+.footer-img-back{
+    height: 23%;
+}
+.lang-content-sec{
+    height: 85%;
+}
+.lang-subheader{
+    font-size: 25px;
+    font-weight: bold;
+    /* text-transform: capitalize; */
+    margin: 0px;
+    padding: 0px 0px 0px 0px;
+    color: #333332;
+}
+.lang-sub-header-content{
+    margin: 0;
+    color: #333332;
+    padding: 5px 0px 0px 0px;
+}
+.tc-chkbox{
+    margin: -2px 15px 0px 0px !important;
+}
+.tc_content{
+    font-size: 13px;
+    font-weight: bold;
+}
+.content-ios > .scroll-content > .lang-content-sec{
+    padding-top: 20px !important;
+}
+}

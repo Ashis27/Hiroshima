@@ -1,0 +1,129 @@
+<!--
+  Generated template for the ActiveTicketInfoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header>
+  <ion-navbar>
+    <ion-title>active-ticket-info</ion-title>
+  </ion-navbar>
+</ion-header> -->
+
+
+<ion-content [class]="pageStatus == 'inUse'?'activeQRBackStyle':''">
+  <ion-row class="m--16">
+    <ion-col col-12 *ngIf="activePasses">
+      <div class="top-bg">
+        <div class="arrow-div" (click)="backToPrevious()">
+            <ion-icon name="arrow-round-back" class="activetkt-info-back-arrow" ></ion-icon>
+        </div>
+        <p></p>
+        <h1 class="top-head" *ngIf="activePasses.passInformation.passDescription && activePasses.passInformation.passDescription.length > 0">
+          {{activePasses.passInformation.passDescription[0].passName}}
+        </h1>
+        <div class="map-img">
+          <img src="assets/imgs/activeticket/maps.png">
+        </div>
+      </div>
+
+      <div class="body">
+        <h1 class="bottom-head">{{lang("Overview")}}</h1>
+        <ion-row *ngIf="pageStatus != 'available'">
+          <ion-col col-12>
+            <!-- QR Code image -->
+            <div class="qr-img">
+              <img src="assets/imgs/activeticket/qr.png">
+            </div>
+          </ion-col>
+          <ion-col col-12>
+            <p class="expired-text m-0 p-t-10" text-center *ngIf="pageStatus == 'expired'">{{lang("Expired")}}</p>
+         <span *ngIf="pageStatus != 'expired'">Pass Expires in</span><br>
+
+         <h1 class="active-tkt-expiry-time" *ngIf="pageStatus != 'expired'">
+             {{day}}<span class="dhm-text">d</span> {{hour}}<span class="dhm-text">hr</span> {{min}}<span class="dhm-text">min</span>
+         </h1>
+       
+          </ion-col>
+        </ion-row>
+
+
+
+        <!-- ticket info commented below which are moved to another page -->
+
+        <!-- first line(location and tickets) -->
+        <!-- <ion-row>
+          <ion-col col-1></ion-col>
+          <ion-col col-5>
+            <p class="overview-head"> {{lang("Location")}}</p>
+            <p class="overview-subhead" *ngIf="activePasses.passInformation?.passDescription && activePasses.passInformation?.passDescription.length > 0">{{activePasses.passInformation.passDescription[0].passAreaDescription}}</p>
+          </ion-col>
+          <ion-col col-1></ion-col>
+          <ion-col col-5>
+            <p class="overview-head">{{lang("Tickets")}}</p>
+            <p class="overview-subhead" *ngIf="activePasses.child > 0">
+              <span class="green-text">{{activePasses.child}}</span> x {{lang("Kids")}}</p>
+            <p class="overview-subhead" *ngIf="activePasses.adult > 0">
+              <span class="green-text">{{activePasses.adult}}</span> x {{lang("Adults")}}</p>
+          </ion-col>
+        </ion-row> -->
+
+        <!-- <div class="st-line"></div> -->
+
+        <!-- second line(expiry and duration) -->
+        <!-- <ion-row>
+          <ion-col col-1></ion-col>
+          <ion-col col-5>
+            <p class="overview-head"> {{lang("Expiry")}}</p>
+            <p class="overview-subhead">{{activePasses.passInformation.passExpiredDate}}</p>
+          </ion-col>
+          <ion-col col-1></ion-col>
+          <ion-col col-5>
+            <p class="overview-head">{{lang("Duration")}}</p>
+            <p class="overview-subhead" *ngIf="activePasses.passInformation.passValidityInDays > 0">
+              <span class="green-text">{{activePasses.passInformation.passValidityInDays}}</span> {{lang("Days")}}
+            </p>
+            <p class="overview-subhead" *ngIf="activePasses.passInformation.passValidityInHours > 0">
+              <span class="green-text">{{activePasses.passInformation.passValidityInHours}}</span> {{lang("Hrs")}}
+            </p>
+          </ion-col>
+        </ion-row> -->
+
+        <!-- <div class="st-line"></div> -->
+
+         <!-- third line(transction and reference) -->
+        <!-- <ion-row>
+          <ion-col col-1></ion-col>
+          <ion-col col-5>
+            <p class="overview-head">{{lang("TransactionNumber")}}</p>
+            <p class="overview-subhead">
+              <span class="">{{activePasses.transactionNumber}}</span>
+            </p>
+          </ion-col>
+          <ion-col col-1></ion-col>
+          <ion-col col-5>
+            <p class="overview-head">{{lang("ReferrenceNumber")}}</p>
+            <p class="overview-subhead">
+              <span class="m-r-10">{{activePasses.uniqueReferrenceNumber}}</span>
+            </p>
+          </ion-col>
+        </ion-row> -->
+
+
+        <p class="para-bold m-0 p-t-b-10 " text-center>{{lang("TicketInfoMessage")}}!</p>
+      </div>
+    </ion-col>
+    <ion-col col-12 *ngIf="!activePasses" class="not-available-sec">
+      <p class="" text-center>
+        <img alt="card_not_found_icon" class="not-found-icon cursor-pointer" src="assets/imgs/not-found.svg">
+      </p>
+      <P class="not-available-text p-t-10">
+        {{lang("NoPassInfoAvailable")}}
+      </P>
+    </ion-col>
+  </ion-row>
+</ion-content>
+<ion-footer no-border *ngIf="activePasses">
+  <button ion-button block (click)="viewTicketInfo()" *ngIf="pageStatus != 'available' || activePasses?.qrCode?.isActive">{{lang("View Ticket Info")}}</button>
+  <button ion-button block (click)="activatePass()" *ngIf="pageStatus == 'available' || !activePasses?.qrCode?.isActive">{{lang("Activate")}}</button>
+</ion-footer>

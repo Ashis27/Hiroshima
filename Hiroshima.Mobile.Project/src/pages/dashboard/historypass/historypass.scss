@@ -1,0 +1,117 @@
+page-historypass {
+    .mar-top-12{
+        margin-top: 12px !important;
+    }
+    .mar-btn-12{
+        margin-bottom: 12px !important;
+    }
+    .pad-left-15{
+        padding-left: 15px !important;
+    }
+    .active-passes{
+        
+        padding: 14px 14px 0px 14px !important;
+        ion-row{
+            text-align: -webkit-center;
+        }
+        ion-row,ion-col,ion-grid{
+            padding: 0 !important;
+            
+        }
+    }
+    .pass-col{
+        z-index: 99 !important;
+        text-align: -webkit-center;
+    }
+    .buy-btn-col{
+        margin-top: auto !important;
+        margin-bottom: auto !important;
+    }
+    .buy-btn{
+        width: 52px;
+        height: 54px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+        background-color: transparent !important;
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+        transform: translate(-3px,0px);
+        ion-row>ion-col>img{
+            width: 22px;
+        }
+        ion-row>ion-col>p{
+            color: #5ecc5d;
+            font-weight: bold;
+            font-size: 15px;
+            margin: 0 !important;
+        }
+    }
+    ion-card {
+        position: relative !important;
+        text-align: left !important;
+        margin: 0px !important;
+        border-radius: 12px !important;
+        /* width: 72% !important; */
+          margin-bottom: 15px !important;
+        img{
+            filter: grayscale(61%);
+          // height: 130px;
+              width: 100%;
+        }
+        .location-text{
+            margin-left: 7px;
+        }
+        .pass-name{
+            position: absolute !important;
+            top: 60% !important;
+            font-size: 1.8rem !important;
+            width: 85% !important;
+            font-weight: bold !important;
+            color: #efefef !important;
+            left: 7%;
+          }
+        
+          .location {
+            font-size: 1.0em !important;
+            position: absolute !important;
+            top: 5% !important;
+            width: 100% !important;
+            color: #efefef !important;
+            left: 7%;
+          }
+          .price{
+            position: absolute;
+            top: 75%;
+            left: 7%;
+            color: #efefef !important;
+            font-weight: bold;
+            font-size: 12px;
+          }
+          .pass-expired{
+            position: absolute;
+            top: 86%;
+            left: 7%;
+            color: #efefef !important;
+            font-weight: bold;
+            font-size: 12px;
+          }
+      }
+      .passes{
+        animation:animateright 1.6s}@keyframes animateright{from{right:-300px;opacity:0} to{right:0;opacity:1}
+       // margin: 0px -15px 0px -15px !important;
+      }
+
+      .card-back-img-blur{
+        filter: blur(3px);
+    }
+    .expired-pass-name{
+        position: absolute !important;
+        top: 5% !important;
+        font-size: 25px !important;
+        width: 100% !important;
+        font-weight: bold !important;
+        color: #ff6666 !important;
+        /* left: 7%; */
+        text-align: right;
+        right: 5%;
+    }
+}

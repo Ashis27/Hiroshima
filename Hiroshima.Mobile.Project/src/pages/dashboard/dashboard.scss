@@ -1,0 +1,76 @@
+page-dashboard {
+    background: white !important;
+   
+    .tab_style{
+        background: #00CC5B;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        padding: 20px 0px 20px 0px;
+    
+        ion-row,ion-col{
+          //  padding: 0 !important;
+            text-align: -webkit-center;
+        }
+        .lang_col{
+            text-align: -webkit-right;
+            padding: 0px 10px 20px 12px !important;
+        }
+        .lang_flag{
+            height: 30px;
+            width: 30px;
+            /* padding: 0px 0px 0px 0px; */
+            margin-left: 10px;
+        }
+        .tab_name {
+            margin: 0 !important;
+            font-size: 13px;
+            color: white;
+            padding-top: 5px;
+        }
+        .tab-image{
+            height: 25px !important;
+    margin-top: 13px !important;
+    transform:none !important;
+        }
+        .selected_tab{
+            height: 60px;
+            width: 60px;
+            background: white;
+            border-radius: 50%;
+            text-align: -webkit-center;
+        }
+        .app-header-title{
+            text-align: left;
+            float: left;
+            font-size: 22px;
+            color: white;
+            font-weight: bold;
+            
+        }
+    }
+    .scroll-content{
+        padding: 0px !important;
+    }
+    .rounded{
+        height: 90%;
+        width: 90%;
+        /* background: red; */
+        /* margin-top: auto; */
+        border: 2px solid white;
+        border-radius: 50%;
+        /* margin-top: 17px; */
+        /* padding: 18px; */
+        transform: translate(0px,3px);
+    }
+    .selectedTab{
+        box-shadow: 0px 0px 9px 6px #ffffff;
+        border: 2px solid #5ecc5d !important;
+        img{
+            animation:animatezoom 0.6s}@keyframes animatezoom{from{transform:scale(0)} to{transform:scale(1)}
+        }
+    }
+    .card-back-img-style{
+        //filter: blur(1px);
+    }
+
+}

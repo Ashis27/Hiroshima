@@ -1,0 +1,35 @@
+page-payment-failure {
+    .top-img{
+        margin: -10px -10px 0px -10px;
+
+    }
+    h1{
+        text-align: center;
+        color: var(--danger-color);
+        font-weight: bold;
+    }
+
+    p{
+        text-align: center;
+        font-size: 14px;
+    }
+    .payment-done-thumb{
+
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .btn{
+        border-radius: 18px;
+        /* COLOR: #00cc5b; */
+        background-color: #fc103d;
+        height: 7%;
+        font-size: 26px;
+        margin-top: 13%;
+    }
+   .failure-image{
+    width: 70%;
+   }
+
+}

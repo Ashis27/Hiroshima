@@ -1,0 +1,66 @@
+<!--
+  Generated template for the FeedbackFormPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-content padding class="feedback-back-sec">
+  <ion-row class="lang-content-sec">
+    <ion-col col-12>
+      <ion-row>
+        <ion-col col-10 class="">
+          <p class="feedback-subheader">
+            {{lang("FeedbackHeader")}}
+          </p>
+          <p class="feedback-subheader">
+            {{lang("FeedbackSubHeader")}}
+          </p>
+        </ion-col>
+        <ion-col col-2>
+          <ion-icon name="close" class="lang-back-arrow" (click)="backToPrevious()"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+    <ion-col col-12>
+      <form [formGroup]="feedbackForm" #createFeedbackForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+        <ion-item class="form-group">
+          <ion-label floating>{{lang("Name")}}</ion-label>
+          <ion-input class="form-control" formControlName="fullName" type="text" spellcheck="false" autocapitalize="off"></ion-input>
+        </ion-item>
+        <ion-item class="form-group">
+          <ion-label floating>{{lang("ContactNumber")}}</ion-label>
+          <ion-input class="form-control" formControlName="contactNumber" type="tel" spellcheck="false" autocapitalize="off" maxlength="10"
+            (keypress)="onlyNumber($event)"></ion-input>
+        </ion-item>
+        <ion-item class="form-group">
+          <ion-label floating>{{lang("SelectType")}}</ion-label>
+          <ion-select class="form-control" formControlName="feedbackType">
+            <ion-option *ngFor="let item of feedbackTypes" [value]="item.value">{{lang(item.text)}}</ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item class="form-group">
+          <ion-label floating>{{lang("Message")}}</ion-label>
+          <ion-textarea class="form-control" formControlName="feedbackDescription" type="text" spellcheck="false" autocapitalize="off"></ion-textarea>
+        </ion-item>
+        <ion-row class="form-group">
+          <ion-col text-center>
+            <button ion-button class="feedback-btn" [disabled]="!createFeedbackForm.form.valid" type="submit">
+              {{lang("Submit")}}
+            </button>
+          </ion-col>
+        </ion-row>
+      </form>
+    </ion-col>
+  </ion-row>
+  <ion-row class="footer-img-back m--16 select-lang-back">
+    <ion-col>
+
+    </ion-col>
+  </ion-row>
+
+
+
+
+
+</ion-content>

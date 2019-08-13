@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\**" />
+    <EmbeddedResource Remove="Migrations\**" />
+    <None Remove="Migrations\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Interfaces\ICategoryRepository.cs" />
+    <Compile Remove="Interfaces\ICourseRepository.cs" />
+    <Compile Remove="Interfaces\IUsersRepository.cs" />
+    <Compile Remove="Repositories\CategoryRepository.cs" />
+    <Compile Remove="Repositories\CourseRepository.cs" />
+    <Compile Remove="Repositories\UsersRepository.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="2.1.0" />
+    <PackageReference Include="MySql.Data" Version="8.0.15" />
+    <PackageReference Include="MySql.Data.EntityFrameworkCore" Version="8.0.15" />
+    <PackageReference Include="System.Linq.Dynamic.Core" Version="1.0.13" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Hiroshima.Maas.Common\Hiroshima.Maas.Common.csproj" />
+    <ProjectReference Include="..\Hiroshima.Maas.DL\Hiroshima.Maas.DL.csproj" />
+  </ItemGroup>
+
+</Project>

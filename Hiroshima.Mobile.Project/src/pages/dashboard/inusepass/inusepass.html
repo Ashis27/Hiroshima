@@ -1,0 +1,48 @@
+
+    <ion-grid class="" *ngIf="paginatedPass.items.length > 0 && isAvaileble">
+        <ion-row *ngFor="let item of paginatedPass.items; let index=index" class="passes">
+            <ion-col col-12 *ngIf="item.passInformation">
+                <ion-row>
+                    <ion-col col-12 class="pass-col">
+                        <ion-card (click)="selectedPass(item)">
+                            <img src="assets/imgs/passdetails/pass-background.jpeg" class="" />
+                            <div class="location">
+                                <ion-icon name="md-pin"></ion-icon>
+                                <span class="location-text" *ngIf="item.passInformation.passDescription && item.passInformation.passDescription.length > 0">{{item.passInformation.passDescription[0].passAreaDescription}}</span>
+                                <span class="expire-text">Expires in</span><br>
+                                <!-- <span class="expiry-time-format">[Day:Hour:Month]</span><br> -->
+                                <span class="expiry-time">{{item.theNoOfDaysRemaining}}<span class="dhm-text">d</span> {{item.theNoOfHoursRemaining}}<span class="dhm-text">hr</span> {{item.theNoOfMinutesRemaining}}<span class="dhm-text">min</span> </span>
+                            </div>
+                            <p class="pass-name para-overflow-hidden" *ngIf="item.passInformation.passDescription && item.passInformation.passDescription.length > 0">{{item.passInformation.passDescription[0].passName}}</p>
+                            <div class="price">
+                                <span class="d-w-i-b">
+                                    {{lang("Kids")}}:
+                                    <img src="assets/imgs/card/dollar.svg" *ngIf="item.passInformation.defaultCurrency== 1" class="card-currency m-l-r-3 v-a-s">
+                                    <img src="assets/imgs/card/yen.svg" *ngIf="item.passInformation.defaultCurrency== 2" class="card-currency m-l-r-3 v-a-s"> {{item.passInformation.childPrice}}
+                                </span>
+                                <span class="padding-left d-w-i-b m-l-10">
+                                    {{lang("Adults")}}:
+                                    <img src="assets/imgs/card/dollar.svg" *ngIf="item.passInformation.defaultCurrency== 1" class="card-currency m-l-r-3 v-a-s">
+                                    <img src="assets/imgs/card/yen.svg" *ngIf="item.passInformation.defaultCurrency== 2" class="card-currency m-l-r-3 v-a-s"> {{item.passInformation.adultPrice}}
+                                </span>
+                            </div>
+                            <div class="pass-expired">
+                                <span class="padding-left">{{lang("Expiry")}}: {{item.passInformation.passExpiredDate}}</span>
+                            </div>
+                        </ion-card>
+                    </ion-col>
+                </ion-row>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <!-- ******************************************************** -->
+
+    <ion-grid class="text-center" *ngIf="!isAvaileble">
+        <p class="m-b-0 not-found-section" text-center>
+            <img alt="card_header_icon" class="not-found-icon cursor-pointer" src="assets/imgs/not-found.svg">
+        </p>
+        <p class="not-available-text" style="font-size:1.5rem">{{lang('NoResultFound')}}!</p>
+    </ion-grid>
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more pass..."></ion-infinite-scroll-content>
+    </ion-infinite-scroll>

@@ -1,0 +1,315 @@
+// http://ionicframework.com/docs/v2/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+$primary-color:#00CC5B;//#116735;// 
+body {
+    --primary-color:#00CC5B;//#116735;// 
+    --primary-alpha-Dot75: rgba(24, 188, 201, 0.75);
+    --primary-alpha-Dot5: rgba(24, 188, 201, 0.5);
+    --primary-alpha-Dot25: rgba(24, 188, 201, 0.25);
+    --primary-alpha-Dot15: rgba(24, 188, 201, 0.15);
+    --primary-alpha-Dot1: rgba(24, 188, 201, 0.1);
+    --primary-alpha-Dot05: rgba(24, 188, 201, 0.05);
+    --primary-dark: #11b1be;
+    --secondary-color: #a5b5c5;
+    --light-color: #e5eaef;
+    --white-color: #fff;
+    --dark-color: #2a3f5a;
+    --dark-alpha-Dot5: rgba(42, 63, 90, 0.5);
+    --dark-alpha-Dot95: rgba(42, 63, 90, 0.95);
+    --success-color: #68bb69;
+    --success-alpha-Dot5: rgba(104, 187, 105, 0.5);
+    --danger-color: #f65f6e;
+    --danger-alpha-Dot5: rgba(246, 95, 110, 0.5);
+    --warning-color: #F8BC34;
+    --warning-alpha-Dot5: rgba(254, 201, 90, 0.5);
+    --para-text-color: #504d4a;
+    --button-color: #FC103D;//#cd2122;//
+    --facebook-color: #3b5998;
+    --google-color: #d34836;
+    --black-light-color: #2d2d2d;
+    --icon-color: #999999;
+    --border-color: #c3c3c3;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('../assets/fonts/Poppins-Regular.ttf');
+
+  }
+  
+  * {
+    font-family: 'Poppins';
+  }
+
+  h1 { font-weight:bold; }
+  p{
+    font-weight: 400;
+}
+.para-overflow-hidden {
+    padding: 0px 0px 0px 0px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap;
+}
+.app-header{
+    color: #020202;
+    margin: 0;
+    font-size: 1.8rem !important;
+    font-weight: bold;
+    padding: 0px 0px 0px 20px;
+}
+.app-subheader{
+    font-size: 24px;
+    font-weight: bold;
+    //text-transform: capitalize;
+    margin: 0px;
+    padding: 10px 0px 10px 0px;
+    color: #020202;
+}
+.app-header-content{
+    margin: 0;
+    color: #020202;
+    line-height: 21px;
+    padding: 3px 0px 3px 0px;
+}
+.padd-0{
+    padding: 0 !important;
+}
+.marr-0{
+    margin: 0 !important;
+}
+.button{
+    width: 90%;
+    margin-left: 5%;
+    background-color: $primary-color;
+    border-radius: 11px;
+    height: 50px;
+    .button-inner{
+        font-size: 24px;
+         font-weight: bold;
+    }
+}
+.error .toast-container {
+    background: var(--danger-color) !important;
+}
+.success .toast-container {
+        background: var(--success-color) !important;
+}
+.warning .toast-container {
+        background:var(--warning-color) !important;
+}
+.not-available-sec{
+    text-align: center;
+    margin-top: 50% !important;
+}
+.not-available-text{
+    color: #4c4c4c;
+    text-align: center;
+}
+.not-found-icon{
+    width: 15%;
+}
+.v-a-b{
+    vertical-align: bottom;
+}
+.v-a-m{
+    vertical-align: middle;
+}
+.v-a-s{
+    vertical-align: sub;
+}
+.m--15{
+    margin: -15px;
+}
+.m--16{
+    margin: -16px;
+}
+.m-l-10{
+    margin-left: 10px;
+}
+.m-r-10{
+    margin-right: 10px;
+}
+.m-l--15{
+    margin-left: -15px;
+}
+.m-l--5{
+    margin-left: -5px;
+}
+.t-a-r{
+    text-align: right;
+}
+.margin-auto{
+    margin: auto !important;
+}
+.m-t-5-p{
+    margin-top: 5%;
+}
+.p-l-15{
+    padding: 0px 0px 0px 15px !important;
+}
+.p-l-10{
+    padding-left: 10px !important;
+}
+.p-t-b-5{
+    padding: 5px 0px 5px 0px;
+}
+.w-50{
+    width: 50%;
+}
+.background-transparent{
+    background: transparent !important;
+}
+
+// Loader
+.spinner1 {
+    //margin: 100px auto 0;
+    width: 70px;
+    text-align: center;
+}
+
+.spinner1>div {
+    width: 18px;
+    height: 18px;
+    background-color: var(--primary-color); //#333;
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.spinner1 .bounce1 {
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+}
+
+.spinner1 .bounce2 {
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+    0%,
+    80%,
+    100% {
+        -webkit-transform: scale(0)
+    }
+    40% {
+        -webkit-transform: scale(1.0)
+    }
+}
+
+@keyframes sk-bouncedelay {
+    0%,
+    80%,
+    100% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    40% {
+        -webkit-transform: scale(1.0);
+        transform: scale(1.0);
+    }
+}
+
+ion-loading>.loading-wrapper {
+    border-radius: 2px;
+    max-width: 280px;
+    max-height: 90%;
+    color: rgba(0, 0, 0, 0.5);
+    background: transparent !important;
+    /* -webkit-box-shadow: 0 16px 20px rgba(0, 0, 0, 0.4); */
+    box-shadow: none !important;
+    padding: 24px;
+}
+.mar-top--5{
+    margin-top: -5px;
+}
+.mar-top-5{
+    margin-top: 5px !important;
+}
+.default-add.item-block .item-inner {
+    border-bottom: 0 !important;
+}
+.m-b-0{
+    margin-bottom: 0px !important;
+}
+.not-found-section{
+    text-align: center;
+    margin-top: 30%;
+}
+.m-0{
+    margin: 0px !important;
+}
+.m-l-r-3{
+    margin: 0px 0px 0px 3px;
+}
+.m-t-b-10{
+    margin: 0px 10px 0px 10px;
+}
+.w-s-n-w{
+    white-space: nowrap;
+}
+.p-t-b-10{
+    padding: 10px 0px 10px 0px;
+}
+.p-t-10{
+    padding-top: 10px;
+}
+.d-w-i-b{
+    display: -webkit-inline-box;
+}
+.card-currency{
+    width: 10px;
+}
+.icon-ios.card-back-arrow {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    /* transform: translate(-50%, -50%); */
+    color: #ffffff;
+    /* width: 65px; */
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .icon-md.card-back-arrow {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    /* transform: translate(-50%, -50%); */
+    color: #ffffff;
+    /* width: 65px; */
+    font-size: 30px;
+  }
+  .icon-md.lang-back-arrow{
+    position: absolute;
+    top: 1%;   
+    color: rgba(0, 0, 0, 0.38823529411764707);
+    font-size: 30px;
+    right: 4%;
+  }
+  .icon-ios.lang-back-arrow{
+    position: absolute;
+    top: 1%;   
+    color: rgba(0, 0, 0, 0.38823529411764707);
+    font-size: 30px;
+    right: 4%;
+    font-weight: bold;
+  }
+// iOS navbar top padding issue
+  .ios ion-nav >.ion-page>ion-content.statusbar-padding:first-child .scroll-content {
+    padding-top: 0px !important
+}
